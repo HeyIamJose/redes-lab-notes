@@ -1,5 +1,10 @@
 # CPT Notes
 
+## Índice
+- [Como crear una red LAN en CPT](#como-crear-una-red-lan-en-cpt)
+- [Como crear una red con router (WAN)](#como-crear-una-red-con-router)
+- [Como usar DHCP](#como-usar-dhcp)
+
 ## Como crear una red LAN en CPT:
 Primero crea una red basica usando un switch, y PCs luego conecta las PC al switch usando cables cooper straight-throug
 en puertos FastEthernet, (si la pc no tiene ese puerto se añade en la pestaña Fisica de la PC) luego entra a la 
