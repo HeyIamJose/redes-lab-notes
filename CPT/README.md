@@ -61,5 +61,6 @@ En una de las PC vamos a ir desktop, run command y ahi vamos a escribir estos do
 ipconfig /release
 ipconfig /renew
 ```
-Con esto nos aseguramos de una conexion limpia
+Y listo!!
+
 ![DHCP](Images/serverdhcp.png)
