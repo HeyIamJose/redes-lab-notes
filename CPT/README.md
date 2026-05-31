@@ -66,3 +66,63 @@ ipconfig /renew
 Y listo!!
 
 ![DHCP](Images/serverdhcp.png)
+
+
+
+## Como crear una red con VLANs
+Bueno para esto vamos a necesitar nuestra red LAN, asi que supongamos que vamos a dividirla tenemos 4 PCs y queremos una VLAN llamada Admins y una VLAN llamada Ventas
+asi que para esto vamos a ir al CLI de nuestro switch y ejecutar lo siguiente:
+```
+conf t
+vlan 10
+name Admins
+vlan 20
+name Ventas
+exit
+```
+Con esto ya creamos nuestras dos VLAN pero estas aun siguen vacias, por lo que primero vamos a identificar en que interfaz (puerto) esta la PC o las PC que vamos a conectar para las VLAN
+en este caso digamos que tenemos fa 0/3 para la vlan de admins y fa 0/5 para la vlan de ventas por lo que los comandos serian:
+```
+int fa0/3
+sw mode access
+sw access vlan 10
+ex
+
+int fa0/5
+sw mode acces
+sw access vlan 20
+ex
+```
+Con esto ya tenemos ambas VLAN funcionando
+### Hacer que las VLAN se puedan comunicar entre si
+Para esto necesitamos configurar unas cuantas cositas mas, primero tenemos que preparar las sub interfaces del router con los siguientes comandos:
+```
+(Limpiamos fa0/0)
+int fa0/0
+no ip add
+no shut
+ex
+
+#(Sub interfaz VLAN 10)
+int fa0/0.10
+encapsulation dot1Q 10 
+ip add 192.168.1.1 255.255.255.0
+ex
+
+(Sub interfaz VLAN 20)
+int fa0/0.20
+encapsulation dot1Q 20
+ip add 192.168.2.1 255.255.255.0
+ex
+```
+Despues de esta configuracion en el CLI del router ya tendriamos configurado todo bien pero falta algo
+>**PUERTO TRONCAL
+Entramos en el CLI del switch y ejecutamos lo siguiente (suponiendo que tu router tiene la interfaz 0/1 en el switch)
+```
+interface fa0/1
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20
+ ```
+ 
+
+	
