@@ -57,3 +57,4 @@ ipconfig /release
 ipconfig /renew
 ```
 Con esto nos aseguramos de una conexion limpia
+![DHCP](Images/serverdhcp.png)
