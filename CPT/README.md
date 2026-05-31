@@ -38,3 +38,22 @@ ip route 192.168.1.0 255.255.255.0 10.0.0.1
 EXTRA: Asegúrate de que la Gateway para la red A sea 192.168.0.1 y la Gateway para la red B sea 192.168.1.1
 
 Basicamente digamos que la red A es choluteca y la red B es Tegucigalpa, viene una persona (PC) de tegucigalpa diciendo que quiere mandarle un paquete a otra persona (PC) en choluteca, pero por si sola no lo puede lograr, por lo que esta personita va a dejar su paquete a la paqueteria (switch) luego la paqueteria se lo entrega al camionero (router) (el cual puede ir hacia afuera de tegucigalpa) luego el camionario viaja hasta choluteca y se encuentra con el camionero de choluteca (router A) y le entrega el paquete, luego el router A le entrega el paquete a la paqueteria de choluteca (switch A) y esa paqueteria le entrega el paquete a la persona en CHoluteca para saberlo, en el paquete esta grabado el Header source y el Dest IP y con eso todos saben a quien pasarselo 
+
+## Como usar DHCP?
+Para usar DHCP primero necesitamos entender que es, basicamente es un ciclo DORA como DORA la exploradora jajaja, ok no DORA significa DiscoverOfferRequestAcknowledge y esto es lo que permite que el DHCP funcione
+y evitarnos tener que escribir IPs estaticas manualmente, para esto necesitamos una red LAN basica con switch, las PC y un SERVER, ACA lo mas importante sera el servidor
+
+### Entramos a la configuracion del server
+Aca tenemos que hacer varios ajustes, primero vamos a configurar el server como tal, para esto primero iremos a desktop y luego a IP confi, aqui vamos a ponerle una IP estatica a nuestro servidor,
+OJO AQUI!!!!!!! la IP del servidor debe estar en el rango de la ip LAN, la gateway debe ser la del router (si tienen) el DNS server por ahora en 0.0.0.0
+### Configurar DHCP
+Aca en el apartado de servicios DHCP vamos a darle a Enabled, luego vamos a configurar la Start IP address aca vamos a poner el rango en que deseamos que nuestro server de las direcciones IP
+solo asegurate de que el rango de ip en que lo pondras no vaya a chocar con otra ip ya establecida, es recomendable ponera desde 192.168.1.2 para no chocar con el router, ajusta la mascara de subred
+la cual es 255.255.255.0 y tambien pon el numero de  dispositivos, ahora podemos salir de aca y vamos a ir a cada PC
+### Cliente
+En una de las PC vamos a ir desktop, run command y ahi vamos a escribir estos dos comandos
+```
+ipconfig /release
+ipconfig /renew
+```
+Con esto nos aseguramos de una conexion limpia
