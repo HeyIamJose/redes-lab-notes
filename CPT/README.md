@@ -33,6 +33,8 @@ Router (B)
 ```
 ip route 192.168.1.0 255.255.255.0 10.0.0.1
 ```
+![Diagrama de mi red](Images/topologia.png)
+
 EXTRA: Asegúrate de que la Gateway para la red A sea 192.168.0.1 y la Gateway para la red B sea 192.168.1.1
 
 Basicamente digamos que la red A es choluteca y la red B es Tegucigalpa, viene una persona (PC) de tegucigalpa diciendo que quiere mandarle un paquete a otra persona (PC) en choluteca, pero por si sola no lo puede lograr, por lo que esta personita va a dejar su paquete a la paqueteria (switch) luego la paqueteria se lo entrega al camionero (router) (el cual puede ir hacia afuera de tegucigalpa) luego el camionario viaja hasta choluteca y se encuentra con el camionero de choluteca (router A) y le entrega el paquete, luego el router A le entrega el paquete a la paqueteria de choluteca (switch A) y esa paqueteria le entrega el paquete a la persona en CHoluteca para saberlo, en el paquete esta grabado el Header source y el Dest IP y con eso todos saben a quien pasarselo 
