@@ -54,9 +54,10 @@ OJO AQUI!!!!!!! la IP del servidor debe estar en el rango de la ip LAN, la gatew
 ### Configurar DHCP
 Aca en el apartado de servicios DHCP vamos a darle a Enabled, luego vamos a configurar la Start IP address aca vamos a poner el rango en que deseamos que nuestro server de las direcciones IP
 solo asegurate de que el rango de ip en que lo pondras no vaya a chocar con otra ip ya establecida, es recomendable ponera desde 192.168.1.2 para no chocar con el router, ajusta la mascara de subred
-la cual es 255.255.255.0 y tambien pon el numero de  dispositivos, ahora podemos salir de aca y vamos a ir a cada PC
+la cual es 255.255.255.0 y tambien pon el numero de  dispositivos,
+### IMPORTANTE!!! DARLE A SAVE
 ### Cliente
-En una de las PC vamos a ir desktop, run command y ahi vamos a escribir estos dos comandos
+En cada una de las PC vamos a ir desktop, run command y ahi vamos a escribir estos dos comandos
 ```
 ipconfig /release
 ipconfig /renew
