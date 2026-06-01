@@ -124,6 +124,6 @@ interface fa0/1
  switchport mode trunk
  switchport trunk allowed vlan 10,20
  ```
- 
+![Diagrama de mi red](Images/vlan.png)
 
 	
